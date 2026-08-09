@@ -1,0 +1,44 @@
+name: Tagesspiegel RSS aktualisieren
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 5,13 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository laden
+        uses: actions/checkout@v6
+
+      - name: Python einrichten
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Abhängigkeiten installieren
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: RSS-Feed erzeugen
+        run: python feedgen.py
+
+      - name: Änderungen speichern
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/feed.xml
+          if git diff --cached --quiet; then
+            echo "Keine Änderung am Feed."
+          else
+            git commit -m "RSS-Feed aktualisieren"
+            git push
+          fi
