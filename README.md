@@ -1,87 +1,41 @@
 # Tagesspiegel Background Energie & Klima → RSS
 
-Dieses kleine Repository erzeugt automatisch einen RSS-Feed aus der öffentlich
-sichtbaren Übersichtsseite:
+Persönlicher RSS-Feed für die Übersichtsseite von  
+**Tagesspiegel Background – Energie & Klima**.
 
-https://background.tagesspiegel.de/energie-und-klima
+## Warum?
 
-Es werden nur Metadaten übernommen: Titel, Teaser, Datum, Autor und Link.
-Geschützte Artikeltexte werden nicht in den Feed kopiert.
+Tagesspiegel bietet für diese Seite keinen RSS-Feed an.
 
-## Einrichtung auf GitHub
+Direkte automatisierte Abrufe der Seite werden mit HTTP 403 blockiert. Das betrifft unter anderem klassische HTTP-Clients und GitHub Actions.
 
-### 1. Neues Repository anlegen
+Deshalb wird die bereits regulär in Safari geladene Seite lokal ausgelesen.
 
-Auf GitHub oben rechts `+` → `New repository`.
+## Funktionsweise
 
-Empfohlener Name:
+Safari  
+↓  
+`generate_from_safari.py`  
+↓  
+`docs/feed.xml`  
+↓  
+GitHub Pages  
+↓  
+NetNewsWire
 
-`tagesspiegel-background-rss`
+Das Skript liest Titel, Links und Teaser aus der in Safari geöffneten Übersichtsseite und erzeugt daraus einen RSS-Feed.
 
-Das Repository kann **Public** sein; es enthält keine privaten Zugangsdaten.
-`Add a README file` zunächst **nicht** auswählen.
+Geschützte Artikelinhalte werden nicht ausgelesen oder in den Feed übernommen.
 
-### 2. Dateien hochladen
+## Aktualisierung
 
-Den Inhalt dieses Pakets ins Repository übernehmen. Die Struktur muss so aussehen:
+1. `https://background.tagesspiegel.de/energie-und-klima` in Safari öffnen.
+2. `Tagesspiegel RSS aktualisieren.command` starten.
+3. Dadurch wird `docs/feed.xml` neu erzeugt.
+4. Änderung zu GitHub committen und pushen.
 
-    .github/
-      workflows/
-        update-feed.yml
-    docs/
-      .gitkeep
-    feedgen.py
-    requirements.txt
-    README.md
+## RSS-Feed
 
-Wichtig: `.github` beginnt mit einem Punkt.
+`https://torsten-u.github.io/tagesspiegel-background-rss/feed.xml`
 
-### 3. Workflow einmal manuell starten
-
-Im Repository:
-
-`Actions` → `Tagesspiegel RSS aktualisieren` → `Run workflow` → `Run workflow`
-
-Nach erfolgreichem Lauf sollte die Datei `docs/feed.xml` im Repository erscheinen.
-
-Falls GitHub nach einer Erlaubnis für Actions fragt, diese für das Repository aktivieren.
-
-### 4. GitHub Pages einschalten
-
-Im Repository:
-
-`Settings` → `Pages`
-
-Unter **Build and deployment**:
-
-- Source: `Deploy from a branch`
-- Branch: `main`
-- Folder: `/docs`
-- `Save`
-
-GitHub veröffentlicht anschließend den Ordner `docs`.
-
-Die Feed-Adresse lautet dann normalerweise:
-
-    https://DEIN-GITHUB-NAME.github.io/tagesspiegel-background-rss/feed.xml
-
-`DEIN-GITHUB-NAME` durch den eigenen GitHub-Benutzernamen ersetzen.
-
-### 5. In NetNewsWire abonnieren
-
-In NetNewsWire:
-
-`File` → `New Web Feed`
-
-Die eben erzeugte GitHub-Pages-Adresse einfügen.
-
-## Automatik
-
-Der Workflow läuft zweimal täglich. Zusätzlich kann er unter `Actions`
-jederzeit manuell gestartet werden.
-
-## Wenn Tagesspiegel seine Seite ändert
-
-Dann kann der Parser irgendwann keine Artikel mehr erkennen. Der Workflow
-bricht in diesem Fall bewusst mit einer Fehlermeldung ab, statt einen leeren
-Feed zu veröffentlichen.
+Der Feed kann direkt in NetNewsWire oder einem anderen RSS-Reader abonniert werden.
