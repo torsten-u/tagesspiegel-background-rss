@@ -6,7 +6,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 REPO = Path(__file__).resolve().parent
-OUT = REPO / "docs" / "feed.xml"
+OUT = REPO / "docs" / "tagesspiegel.xml"
 
 JS = """
 (() => {
@@ -57,19 +57,34 @@ def safari_js(js):
         "-e", f'do JavaScript {json.dumps(js)} in current tab of front window',
         "-e", "end tell"
     ], capture_output=True, text=True)
+
     if p.returncode != 0:
-        raise RuntimeError(p.stderr.strip() or "Safari/AppleScript-Fehler")
+        raise RuntimeError(
+            p.stderr.strip() or "Safari/AppleScript-Fehler"
+        )
+
     return p.stdout.strip()
 
+
 items = json.loads(safari_js(JS))
-items = [x for x in items if x["title"] not in {
-    "Analysen und Nachrichten", "Letzte Briefing-Ausgabe"
-}]
+
+items = [
+    x for x in items
+    if x["title"] not in {
+        "Analysen und Nachrichten",
+        "Letzte Briefing-Ausgabe"
+    }
+]
 
 if not items:
-    raise SystemExit("Keine Artikel gefunden. Ist die Background-Seite der aktive Safari-Tab?")
+    raise SystemExit(
+        "Keine Artikel gefunden. Ist die Background-Seite der aktive Safari-Tab?"
+    )
 
-OUT.parent.mkdir(parents=True, exist_ok=True)
+OUT.parent.mkdir(
+    parents=True,
+    exist_ok=True
+)
 
 rss = [
     '<?xml version="1.0" encoding="UTF-8"?>',
@@ -83,16 +98,40 @@ rss = [
 ]
 
 for it in items[:40]:
-    title, link = escape(it["title"]), escape(it["link"])
+    title = escape(it["title"])
+    link = escape(it["link"])
     teaser = escape(it.get("teaser") or "")
-    rss += ["<item>", f"<title>{title}</title>", f"<link>{link}</link>",
-            f'<guid isPermaLink="true">{link}</guid>']
+
+    rss += [
+        "<item>",
+        f"<title>{title}</title>",
+        f"<link>{link}</link>",
+        f'<guid isPermaLink="true">{link}</guid>'
+    ]
+
     if teaser:
-        rss.append(f"<description>{teaser}</description>")
-    rss.append("</item>")
+        rss.append(
+            f"<description>{teaser}</description>"
+        )
 
-rss += ["</channel>", "</rss>"]
-OUT.write_text("\n".join(rss), encoding="utf-8")
+    rss.append(
+        "</item>"
+    )
 
-print(f"{len(items)} Einträge gefunden.")
-print(f"RSS geschrieben: {OUT}")
+rss += [
+    "</channel>",
+    "</rss>"
+]
+
+OUT.write_text(
+    "\n".join(rss),
+    encoding="utf-8"
+)
+
+print(
+    f"{len(items)} Einträge gefunden."
+)
+
+print(
+    f"RSS geschrieben: {OUT}"
+)
