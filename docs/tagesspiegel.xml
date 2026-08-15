@@ -5,7 +5,7 @@
 <link>https://background.tagesspiegel.de/energie-und-klima</link>
 <description>RSS aus der in Safari geladenen Übersichtsseite von Tagesspiegel Background Energie &amp; Klima.</description>
 <language>de</language>
-<lastBuildDate>Fri, 14 Aug 2026 16:02:13 +0000</lastBuildDate>
+<lastBuildDate>Sat, 15 Aug 2026 05:17:40 +0000</lastBuildDate>
 <item>
 <title>Verbände drängen auf Änderungen bis zur Kabinettfassung</title>
 <link>https://background.tagesspiegel.de/energie-und-klima/monitoring/verbaende-draengen-auf-aenderungen-bis-zur-kabinettfassung</link>
@@ -68,16 +68,16 @@ Neue oder aktualisierte Inhalte der letzten 14 Tage</title>
 <description>Energieversorgung in Europa</description>
 </item>
 <item>
-<title>„Bei den Differenzverträgen wurde eine Chance verpasst“</title>
-<link>https://background.tagesspiegel.de/energie-und-klima/briefing/bei-den-differenzvertraegen-wurde-eine-chance-verpasst</link>
-<guid isPermaLink="true">https://background.tagesspiegel.de/energie-und-klima/briefing/bei-den-differenzvertraegen-wurde-eine-chance-verpasst</guid>
-<description>EEG-Novelle</description>
-</item>
-<item>
 <title>Bundesumweltministerium löst Abteilung „Internationales und Europa“ auf</title>
 <link>https://background.tagesspiegel.de/energie-und-klima/briefing/bundesumweltministerium-loest-abteilung-internationales-und-europa-auf</link>
 <guid isPermaLink="true">https://background.tagesspiegel.de/energie-und-klima/briefing/bundesumweltministerium-loest-abteilung-internationales-und-europa-auf</guid>
 <description>Für mehr „Kohärenz und Stringenz“</description>
+</item>
+<item>
+<title>„Bei den Differenzverträgen wurde eine Chance verpasst“</title>
+<link>https://background.tagesspiegel.de/energie-und-klima/briefing/bei-den-differenzvertraegen-wurde-eine-chance-verpasst</link>
+<guid isPermaLink="true">https://background.tagesspiegel.de/energie-und-klima/briefing/bei-den-differenzvertraegen-wurde-eine-chance-verpasst</guid>
+<description>EEG-Novelle</description>
 </item>
 <item>
 <title>Kabinett bringt EEG und Netzpaket auf den Weg</title>
@@ -159,12 +159,6 @@ CDU-Bundestagsabgeordnete und zuständig für Agrar und Klimaschutz</title>
 <description>Alle Termine Heute</description>
 </item>
 <item>
-<title>10:00
-BWE zum BNetzA-Beschluss zu Batteriespeichern</title>
-<link>https://background.tagesspiegel.de/energie-und-klima/monitoring/bwe-zum-bnetza-beschluss-zu-batteriespeichern</link>
-<guid isPermaLink="true">https://background.tagesspiegel.de/energie-und-klima/monitoring/bwe-zum-bnetza-beschluss-zu-batteriespeichern</guid>
-</item>
-<item>
 <title>19:00
 FNF zur Energiesicherheit</title>
 <link>https://background.tagesspiegel.de/energie-und-klima/monitoring/fnf-zur-energiesicherheit</link>
@@ -244,6 +238,12 @@ BWE zum Artenschutz</title>
 <link>https://background.tagesspiegel.de/energie-und-klima/monitoring/mehrheit-will-weiterhin-konsequenten-klimaschutz-aber-die-zustimmung-nimmt-ab</link>
 <guid isPermaLink="true">https://background.tagesspiegel.de/energie-und-klima/monitoring/mehrheit-will-weiterhin-konsequenten-klimaschutz-aber-die-zustimmung-nimmt-ab</guid>
 <description>Bertelsmann Stiftung In Deutschland gibt es weiterhin eine Mehrheit für einen konsequenten Klimaschutz und die Energie-, Verkehrs- und Wärmewende. 54 Prozent fordern mehr staatliche Investitionen in Klimaschutz als bisher und etwa 56 Prozent verlangen weitere Maßnahmen in der Energie-, Verkehrs- und Wärmewende. Allerdings ist die Besorgnis über den Klimawandel gesunken und auch...</description>
+</item>
+<item>
+<title>Energiewende: BSH gibt grünes Licht für Offshore-Anbindungsleitung in der Nordsee</title>
+<link>https://background.tagesspiegel.de/energie-und-klima/monitoring/energiewende-bsh-gibt-gruenes-licht-fuer-offshore-anbindungsleitung-in-der-nordsee</link>
+<guid isPermaLink="true">https://background.tagesspiegel.de/energie-und-klima/monitoring/energiewende-bsh-gibt-gruenes-licht-fuer-offshore-anbindungsleitung-in-der-nordsee</guid>
+<description>Bundesamt für Seeschifffahrt und Hydrographie (BSH) Das Bundesamt für Seeschifffahrt und Hydrographie (BSH) hat die Plangenehmigung für die Offshore-Anbindungsleitung BalWin4 und BalWin delta erlassen. Vorhabenträgerin ist die TenneT Offshore. Das Vorhaben dient dazu, unter anderem den Offshore-Windpark Waterekke in der Nordsee anzuschließen. BSH-Präsident Helge Heegewaldt sagt: "Mit der Plangenehmigung für BalWin4...</description>
 </item>
 </channel>
 </rss>
